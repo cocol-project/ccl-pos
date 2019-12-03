@@ -1,0 +1,9 @@
+name: pos
+version: 0.1.0-alpha
+
+authors:
+  - Cristian Șerb <cserb@pm.me>
+
+crystal: 0.31.1
+
+license: MPL-2.0
