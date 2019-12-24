@@ -22,7 +22,7 @@ module Cocol
       end
     end
 
-    def naive_random_selection(seed : BlockHash, validator_id : String) : Bool
+    def naive_leader?(seed : BlockHash, validator_id : String) : Bool
       bi = seed.to_big_i(16)
       leader = ValidatorPool.validators[(bi % (ValidatorPool.validators.size + 1)) - 2]
 
