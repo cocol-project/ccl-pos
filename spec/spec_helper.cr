@@ -1,2 +1,2 @@
 require "spec"
-require "../src/pos"
+require "../src/ccl-pos"

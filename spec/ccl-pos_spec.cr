@@ -1,9 +1,8 @@
 require "./spec_helper"
 
-include Cocol::Pos
+include CCL::Pos
 
-describe Cocol::Pos do
-
+describe CCL::Pos do
   before_each do
     ValidatorPool.validators.clear
 

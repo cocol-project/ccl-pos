@@ -1,6 +1,6 @@
 require "big"
 
-module Cocol
+module CCL
   module Pos
     extend self
     alias BlockHash = String
