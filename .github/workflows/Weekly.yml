@@ -1,22 +1,23 @@
 name: Weekly
-
 on:
+  push:
+    branches:
+    - master
   schedule:
-    - cron: 0 0 * * 0
+    - cron: 0 1 * * *
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     container:
       image: crystallang/crystal
-
     steps:
     - uses: actions/checkout@v1
-    - name: Install dependencies
-      run: shards install
-    - name: Run tests
-      run: crystal spec --error-trace -t -Dpreview_mt
-    - name: Check formatting
-      run: crystal tool format --check
+    - name: Install Dependencies
+      run: shards install --verbose
+    - name: Run Test Suite
+      run: |
+        shards build --verbose
+        crystal tool format --check
+        crystal spec --verbose
+        crystal run ./try.cr
