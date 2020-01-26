@@ -4,7 +4,7 @@ on:
     branches:
     - master
   schedule:
-    - cron: 0 1 * * *
+    - cron: 0 0 * * 0
 
 jobs:
   build:
@@ -14,10 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install Dependencies
-      run: shards install --verbose
+      run: shards install
     - name: Run Test Suite
       run: |
-        shards build --verbose
         crystal tool format --check
-        crystal spec --verbose
-        crystal run ./try.cr
+        crystal spec
